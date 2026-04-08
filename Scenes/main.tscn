@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dx004t8tsjqhd"]
 
+[ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/Floor/Tongue.png" id="2_bo1nx"]
 
@@ -7,6 +8,7 @@
 size = Vector2(128, 128)
 
 [node name="Main" type="Node2D" unique_id=529645710]
+script = ExtResource("1_8gbba")
 
 [node name="Player" parent="." unique_id=2053804336 instance=ExtResource("1_jjgbg")]
 position = Vector2(576, 310)
