@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bl2yxyb4b1nf7"]
+
+[ext_resource type="Script" uid="uid://0607s12kjvnq" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cnvcro8q8r1vn" path="res://Assests/Images/Player/Jawbreaker.png" id="1_v0iea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(95, 0, 600, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 275.00726
+
+[node name="Player" type="CharacterBody2D" unique_id=2053804336]
+script = ExtResource("1_cvnsp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1903976701]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6t5aa")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972182217]
+position = Vector2(-6, -7)
+shape = SubResource("CircleShape2D_6t5aa")
