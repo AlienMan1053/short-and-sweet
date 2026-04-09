@@ -3,14 +3,27 @@
 [ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/Floor/Tongue.png" id="2_bo1nx"]
+[ext_resource type="FontFile" uid="uid://dgymasmm5i6tu" path="res://Assests/Fonts/toxigenesis bd.otf" id="4_kry3j"]
+[ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scenes/score_label.gd" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scenes/game_manager.gd" id="6_21xkr"]
+[ext_resource type="Texture2D" uid="uid://vmw3qa77fio2" path="res://Assests/Images/UI Elements/ScoreBox.png" id="6_344ge"]
+[ext_resource type="Script" uid="uid://dxbe56ee1nb60" path="res://Scenes/combo_label.gd" id="8_344ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
-size = Vector2(128, 128)
+size = Vector2(127.88889, 98)
+
+[sub_resource type="Theme" id="Theme_6bp64"]
+default_font = ExtResource("4_kry3j")
 
 [node name="Main" type="Node2D" unique_id=529645710]
 script = ExtResource("1_8gbba")
 
+[node name="GameManager" type="Node" parent="." unique_id=918708317]
+unique_name_in_owner = true
+script = ExtResource("6_21xkr")
+
 [node name="Player" parent="." unique_id=2053804336 instance=ExtResource("1_jjgbg")]
+z_index = 1
 position = Vector2(576, 310)
 scale = Vector2(0.25, 0.25)
 
@@ -25,6 +38,7 @@ scale = Vector2(0.15944444, 1)
 texture = ExtResource("2_bo1nx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue" unique_id=2130997797]
+position = Vector2(0.05555725, 15)
 shape = SubResource("RectangleShape2D_8gbba")
 
 [node name="Left Wall" type="StaticBody2D" parent="." unique_id=1407524714]
@@ -54,3 +68,41 @@ texture = ExtResource("2_bo1nx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall" unique_id=168132615]
 shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="UserInterface" type="Control" parent="." unique_id=1999656263]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 60.0
+offset_right = 111.0
+offset_bottom = 100.0
+theme = SubResource("Theme_6bp64")
+
+[node name="ScoreBox" type="Sprite2D" parent="UserInterface" unique_id=1968827589]
+position = Vector2(59.99997, 19.99997)
+scale = Vector2(0.175, 0.108333334)
+texture = ExtResource("6_344ge")
+
+[node name="ScoreLabel" type="Label" parent="UserInterface" unique_id=247105819]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -12.0
+offset_right = 129.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 16
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_6bp64")
+
+[node name="ComboLabel" type="Label" parent="UserInterface" unique_id=1750304067]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 26.0
+offset_right = 127.0
+offset_bottom = 52.0
+text = "Combo: x1.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_344ge")
