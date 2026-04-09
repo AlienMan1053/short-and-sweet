@@ -8,6 +8,5 @@ func _on_body_entered(body) -> void:
 	if(body.name == "Tongue"):
 		GameManager.remove_point()
 	if(body.name == "Player"):
-		if GameManager.player_size >= .1:
-			GameManager.set_size(-.025)
+		GameManager.set_size(2.0/3.0)
 	queue_free()
