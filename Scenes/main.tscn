@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dx004t8tsjqhd"]
 
 [ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://b0aqfft4w6lx5" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/Floor/Tongue.png" id="2_bo1nx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(128, 128)
 
 [node name="Main" type="Node2D" unique_id=529645710]
+script = ExtResource("1_jjvhh")
 
 [node name="Player" parent="." unique_id=2053804336 instance=ExtResource("1_jjgbg")]
 position = Vector2(576, 310)
@@ -15,6 +17,7 @@ scale = Vector2(0.25, 0.25)
 [node name="Tongue" type="StaticBody2D" parent="." unique_id=664364024]
 position = Vector2(576, 925)
 scale = Vector2(9, 1)
+collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Tongue" unique_id=2113338856]
@@ -29,6 +32,7 @@ shape = SubResource("RectangleShape2D_8gbba")
 position = Vector2(-64, 519)
 rotation = 1.5707964
 scale = Vector2(9, 1)
+collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Left Wall" unique_id=2044841040]
@@ -40,9 +44,10 @@ texture = ExtResource("2_bo1nx")
 shape = SubResource("RectangleShape2D_8gbba")
 
 [node name="Right Wall" type="StaticBody2D" parent="." unique_id=1585153120]
-position = Vector2(1210, 512)
+position = Vector2(1215, 512)
 rotation = -1.5707964
 scale = Vector2(9, 1)
+collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Right Wall" unique_id=879034731]
