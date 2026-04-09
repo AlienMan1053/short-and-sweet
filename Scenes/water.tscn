@@ -1,18 +1,17 @@
-[gd_scene format=3 uid="uid://da31hxfox6rin"]
+[gd_scene format=3 uid="uid://cxhg35ejc6s1x"]
 
-[ext_resource type="Script" uid="uid://ci8r23xlkkkxm" path="res://Scripts/sugarDroplet.gd" id="1_n4k3a"]
-[ext_resource type="Texture2D" uid="uid://bjf312i2c7tax" path="res://Assests/Images/Sugar/Sugar.png" id="2_6lna5"]
+[ext_resource type="Script" uid="uid://ci8r23xlkkkxm" path="res://Scripts/sugarDroplet.gd" id="1_gf5bf"]
+[ext_resource type="Texture2D" uid="uid://bjf312i2c7tax" path="res://Assests/Images/Sugar/Sugar.png" id="2_qq3op"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmgec"]
 radius = 197.16237
 
 [node name="Sugar" type="Area2D" unique_id=1111726100]
-position = Vector2(1, 0)
 scale = Vector2(0.75, 0.75)
-script = ExtResource("1_n4k3a")
+script = ExtResource("1_gf5bf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=739371602]
-texture = ExtResource("2_6lna5")
+texture = ExtResource("2_qq3op")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087858873]
 position = Vector2(6, -4)

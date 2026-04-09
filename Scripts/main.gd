@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var timer = Timer.new()
-	timer.wait_time = 1.7
+	timer.wait_time = 1
 	add_child(timer)
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
