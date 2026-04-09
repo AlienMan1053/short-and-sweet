@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dx004t8tsjqhd"]
+
+[ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://Scenes/main.gd" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/Floor/Tongue.png" id="2_bo1nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(128, 128)
+
+[node name="Main" type="Node2D" unique_id=529645710]
+script = ExtResource("1_8gbba")
+
+[node name="Player" parent="." unique_id=2053804336 instance=ExtResource("1_jjgbg")]
+position = Vector2(576, 310)
+scale = Vector2(0.25, 0.25)
+
+[node name="Tongue" type="StaticBody2D" parent="." unique_id=664364024]
+position = Vector2(576, 925)
+scale = Vector2(9, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Tongue" unique_id=2113338856]
+position = Vector2(0.11099243, -1)
+scale = Vector2(0.15944444, 1)
+texture = ExtResource("2_bo1nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue" unique_id=2130997797]
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="Left Wall" type="StaticBody2D" parent="." unique_id=1407524714]
+position = Vector2(-64, 519)
+rotation = 1.5707964
+scale = Vector2(9, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Left Wall" unique_id=2044841040]
+position = Vector2(0.11099243, -1)
+scale = Vector2(0.15944444, 1)
+texture = ExtResource("2_bo1nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall" unique_id=415923889]
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="Right Wall" type="StaticBody2D" parent="." unique_id=1585153120]
+position = Vector2(1210, 512)
+rotation = -1.5707964
+scale = Vector2(9, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Right Wall" unique_id=879034731]
+position = Vector2(0.11099243, -1)
+scale = Vector2(0.15944444, 1)
+texture = ExtResource("2_bo1nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall" unique_id=168132615]
+shape = SubResource("RectangleShape2D_8gbba")

@@ -11,7 +11,7 @@ func _ready():
 	
 func _on_timer_timeout():
 	randomize()
-	var droplet = preload("res://Scenes/falling_droplet.tscn").instantiate()
+	var droplet = preload("res://Scenes/droplet.tscn").instantiate()
 	droplet.position.y = -25
 	droplet.position.x = randf_range(100, 1000)
 	add_child(droplet)
