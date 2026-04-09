@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bg0gklxnrqc53"]
 
-[ext_resource type="Script" uid="uid://saglmnbwnrib" path="res://enemyDroplet.gd" id="1_1f0kj"]
+[ext_resource type="Script" uid="uid://saglmnbwnrib" path="res://Scripts/enemyDroplet.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://d4dgwyohdl3vg" path="res://Assests/Images/Enemy/Enemy.png" id="2_1f0kj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmgec"]
@@ -18,3 +18,4 @@ position = Vector2(6, -4)
 shape = SubResource("CircleShape2D_fmgec")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="caught" from="." to="." method="_on_caught"]

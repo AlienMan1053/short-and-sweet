@@ -30,3 +30,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.rotation += 0.1
 	if direction == -1.0:
 		animated_sprite_2d.rotation -= 0.1
+
+func shrink() -> void:
+	$AnimatedSprite2D.scale = Vector2(0.5, 0.5)
+	$CollisionShape2D.scale = Vector2(0.5, 0.5)

@@ -20,3 +20,4 @@ func remove_point():
 	emit_signal("score_changed",score)
 	emit_signal("combo_changed",comboMultipier)
 	print(score)
+	

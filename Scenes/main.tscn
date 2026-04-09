@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dx004t8tsjqhd"]
 
-[ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://main.gd" id="1_8gbba"]
+[ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/Floor/Tongue.png" id="2_bo1nx"]
 [ext_resource type="FontFile" uid="uid://dgymasmm5i6tu" path="res://Assests/Fonts/toxigenesis bd.otf" id="4_kry3j"]
-[ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scenes/score_label.gd" id="6_6bp64"]
-[ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scenes/game_manager.gd" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scripts/score_label.gd" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scripts/game_manager.gd" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://vmw3qa77fio2" path="res://Assests/Images/UI Elements/ScoreBox.png" id="6_344ge"]
-[ext_resource type="Script" uid="uid://dxbe56ee1nb60" path="res://Scenes/combo_label.gd" id="8_344ge"]
+[ext_resource type="Script" uid="uid://dxbe56ee1nb60" path="res://Scripts/combo_label.gd" id="8_344ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(127.88889, 98)
