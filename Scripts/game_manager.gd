@@ -3,8 +3,9 @@ signal score_changed(new_score)
 signal combo_changed(new_combo)
 var score = 0
 var comboMultipier = 1.0
-signal hit
 var player_size = 0.25
+
+
 enum GAME_STATES {
 	PLAYING,
 	GAME_OVER
@@ -28,10 +29,8 @@ func remove_point():
 	print(score)
 	
 func set_size(size_change):
-	print("you got hit")
 	player_size += size_change
-	emit_signal("hit", player_size)
-
+	print("New Size: ", player_size)
 
 func _on_button_pressed() -> void:
 	%GameOver.hide()

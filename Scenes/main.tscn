@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dgymasmm5i6tu" path="res://Assests/Fonts/toxigenesis bd.otf" id="4_kry3j"]
 [ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scripts/score_label.gd" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scripts/game_manager.gd" id="6_21xkr"]
-[ext_resource type="Texture2D" uid="uid://vmw3qa77fio2" path="res://Assests/Images/UI Elements/ScoreBox.png" id="6_344ge"]
+[ext_resource type="Texture2D" uid="uid://drsqxk6u1c80d" path="res://Assests/Images/UI Elements/Button.png" id="6_344ge"]
 [ext_resource type="Script" uid="uid://dxbe56ee1nb60" path="res://Scripts/combo_label.gd" id="8_344ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
@@ -92,8 +92,8 @@ offset_bottom = 100.0
 theme = SubResource("Theme_6bp64")
 
 [node name="ScoreBox" type="Sprite2D" parent="UserInterface" unique_id=1968827589]
-position = Vector2(59.99997, 19.99997)
-scale = Vector2(0.175, 0.108333334)
+position = Vector2(60.000004, 21.5)
+scale = Vector2(0.26000002, 0.2633333)
 texture = ExtResource("6_344ge")
 
 [node name="ScoreLabel" type="Label" parent="UserInterface" unique_id=247105819]
@@ -194,5 +194,4 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Start Over"
 
-[connection signal="hit" from="GameManager" to="Player" method="_on_game_manager_hit"]
 [connection signal="pressed" from="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer/Button" to="GameManager" method="_on_button_pressed"]

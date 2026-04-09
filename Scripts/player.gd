@@ -7,6 +7,23 @@ const JUMP_VELOCITY = -600.0
 
 func _process(delta: float) -> void:
 	scale = Vector2(GameManager.player_size, GameManager.player_size)
+	if(GameManager.player_size >= 0.25):
+		animated_sprite_2d.animation = "idle"
+	elif(GameManager.player_size >= 0.225):
+		animated_sprite_2d.animation = "orange"
+	elif(GameManager.player_size >= 0.2):
+		animated_sprite_2d.animation = "yellow"
+	elif(GameManager.player_size >= 0.175):
+		animated_sprite_2d.animation = "green"
+	elif(GameManager.player_size >= 0.15):
+		animated_sprite_2d.animation = "blue"
+	elif(GameManager.player_size >= 0.125):
+		animated_sprite_2d.animation = "pink"
+	elif(GameManager.player_size >= 0.1):
+		animated_sprite_2d.animation = "purple"
+	elif(GameManager.player_size >= 0.075):
+		animated_sprite_2d.animation = "indigo"
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
