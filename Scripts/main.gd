@@ -6,7 +6,7 @@ func _ready():
 	#var timer = Timer.new()
 	#timer.wait_time = wait_time
 	#add_child(timer)
-	
+	%GameOver.hide()
 	%DropTimer.timeout.connect(_on_timer_timeout)
 	%DropTimer.start()
 
@@ -29,3 +29,6 @@ func _on_timer_timeout():
 func _process(delta: float) -> void:
 	%DropTimer.wait_time = wait_time
 	pass
+
+func on_game_over():
+	%GameOver.show()
