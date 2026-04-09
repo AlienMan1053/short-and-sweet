@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/Floor/Tongue.png" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/World/Tongue.png" id="2_bo1nx"]
 [ext_resource type="FontFile" uid="uid://dgymasmm5i6tu" path="res://Assests/Fonts/toxigenesis bd.otf" id="4_kry3j"]
 [ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scripts/score_label.gd" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scripts/game_manager.gd" id="6_21xkr"]
@@ -15,12 +15,23 @@ size = Vector2(127.88889, 98)
 [sub_resource type="Theme" id="Theme_6bp64"]
 default_font = ExtResource("4_kry3j")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.68584627, 0.4168736, 0.41278768, 1)
+border_blend = true
+
 [node name="Main" type="Node2D" unique_id=529645710]
 script = ExtResource("1_8gbba")
 
 [node name="GameManager" type="Node" parent="." unique_id=918708317]
 unique_name_in_owner = true
 script = ExtResource("6_21xkr")
+
+[node name="DropTimer" type="Timer" parent="." unique_id=1930163756]
+unique_name_in_owner = true
 
 [node name="Player" parent="." unique_id=2053804336 instance=ExtResource("1_jjgbg")]
 z_index = 1
@@ -71,6 +82,7 @@ shape = SubResource("RectangleShape2D_8gbba")
 
 [node name="UserInterface" type="Control" parent="." unique_id=1999656263]
 unique_name_in_owner = true
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_left = 24.0
@@ -107,4 +119,80 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_344ge")
 
+[node name="GameOver" type="ColorRect" parent="UserInterface" unique_id=690339426]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -130.0
+offset_right = 1156.0
+offset_bottom = 924.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.53333336)
+
+[node name="PanelContainer" type="PanelContainer" parent="UserInterface/GameOver" unique_id=1710239999]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -97.0
+offset_right = 203.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_344ge")
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/GameOver/PanelContainer" unique_id=2027258554]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/GameOver/PanelContainer/MarginContainer" unique_id=499334089]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1740417538]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1063820750]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1406083269]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=2139124317]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1944594716]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=21226640]
+layout_mode = 2
+text = "Start Over"
+
 [connection signal="hit" from="GameManager" to="Player" method="_on_game_manager_hit"]
+[connection signal="pressed" from="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer/Button" to="GameManager" method="_on_button_pressed"]

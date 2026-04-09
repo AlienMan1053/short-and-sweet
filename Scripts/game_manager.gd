@@ -4,7 +4,11 @@ signal combo_changed(new_combo)
 var score = 0
 var comboMultipier = 1.0
 signal hit
-var player_size = .25
+var player_size = 0.25
+enum GAME_STATES {
+	PLAYING,
+	GAME_OVER
+}
 
 func add_point():
 	score += 10*comboMultipier
@@ -24,7 +28,11 @@ func remove_point():
 	print(score)
 	
 func set_size(size_change):
-	
+	print("you got hit")
 	player_size += size_change
-	print("player size changed to: " + str(player_size))
 	emit_signal("hit", player_size)
+
+
+func _on_button_pressed() -> void:
+	%GameOver.hide()
+	get_tree().reload_current_scene()
