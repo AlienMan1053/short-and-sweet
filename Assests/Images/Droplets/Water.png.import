@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diwduh5g0fvl3"
-path="res://.godot/imported/Tongue.png-e6dc5e3dcbaa919fecbfd03bf1f01c85.ctex"
+uid="uid://bv0q0cju0fhac"
+path="res://.godot/imported/Water.png-c791d63df46ca4832c4a01f56b6013b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/Images/World/Tongue.png"
-dest_files=["res://.godot/imported/Tongue.png-e6dc5e3dcbaa919fecbfd03bf1f01c85.ctex"]
+source_file="res://Assests/Images/Droplets/Water.png"
+dest_files=["res://.godot/imported/Water.png-c791d63df46ca4832c4a01f56b6013b2.ctex"]
 
 [params]
 

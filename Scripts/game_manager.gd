@@ -25,5 +25,5 @@ func remove_point():
 	
 func set_size(size_change):
 	print("you got hit")
-	player_size *= size_change
+	player_size += size_change
 	emit_signal("hit", player_size)
