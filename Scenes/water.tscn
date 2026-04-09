@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxhg35ejc6s1x"]
 
-[ext_resource type="Script" path="res://Scripts/sugarDroplet.gd" id="1_gf5bf"]
-[ext_resource type="Texture2D" uid="uid://w6365euha80c" path="res://Assests/Images/Droplets/Sugar.png" id="2_qq3op"]
+[ext_resource type="Script" uid="uid://ci8r23xlkkkxm" path="res://Scripts/sugarDroplet.gd" id="1_gf5bf"]
+[ext_resource type="Texture2D" uid="uid://bjf312i2c7tax" path="res://Assests/Images/Sugar/Sugar.png" id="2_qq3op"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmgec"]
 radius = 197.16237
