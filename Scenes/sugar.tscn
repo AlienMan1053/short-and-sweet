@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bs5dijrc8o1h8" path="res://Assests/Images/Droplets/Sugar.png" id="2_6lna5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmgec"]
-radius = 197.16237
+radius = 164.71526
 
 [node name="Sugar" type="Area2D" unique_id=1111726100]
 scale = Vector2(0.75, 0.75)

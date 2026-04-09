@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://saglmnbwnrib" path="res://Scripts/enemyDroplet.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://dle58fsopbboh" path="res://Assests/Images/Droplets/Enemy.png" id="2_1f0kj"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fmgec"]
-radius = 197.16237
+[sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
+radius = 164.71526
 
 [node name="Enemy" type="Area2D" unique_id=1111726100]
 scale = Vector2(0.75, 0.75)
@@ -13,8 +13,8 @@ script = ExtResource("1_1f0kj")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=739371602]
 texture = ExtResource("2_1f0kj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087858873]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51193795]
 position = Vector2(6, -4)
-shape = SubResource("CircleShape2D_fmgec")
+shape = SubResource("CircleShape2D_1f0kj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

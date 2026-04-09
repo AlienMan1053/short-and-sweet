@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/Floor/Tongue.png" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/World/Tongue.png" id="2_bo1nx"]
 [ext_resource type="FontFile" uid="uid://dgymasmm5i6tu" path="res://Assests/Fonts/toxigenesis bd.otf" id="4_kry3j"]
 [ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scripts/score_label.gd" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scripts/game_manager.gd" id="6_21xkr"]
@@ -21,6 +21,9 @@ script = ExtResource("1_8gbba")
 [node name="GameManager" type="Node" parent="." unique_id=918708317]
 unique_name_in_owner = true
 script = ExtResource("6_21xkr")
+
+[node name="DropTimer" type="Timer" parent="." unique_id=1930163756]
+unique_name_in_owner = true
 
 [node name="Player" parent="." unique_id=2053804336 instance=ExtResource("1_jjgbg")]
 z_index = 1
