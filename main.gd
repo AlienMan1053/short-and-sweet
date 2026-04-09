@@ -11,11 +11,15 @@ func _ready():
 	
 func _on_timer_timeout():
 	randomize()
-	var droplet = preload("res://Scenes/droplet.tscn").instantiate()
+	var choice = randf_range(1,100)
+	var droplet
+	if(choice < 70):
+		droplet = preload("res://Scenes/sugar.tscn").instantiate()
+	else:
+		droplet = preload("res://Scenes/enemy.tscn").instantiate()
 	droplet.position.y = -25
 	droplet.position.x = randf_range(100, 1000)
 	add_child(droplet)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
