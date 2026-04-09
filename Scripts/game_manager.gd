@@ -3,6 +3,8 @@ signal score_changed(new_score)
 signal combo_changed(new_combo)
 var score = 0
 var comboMultipier = 1.0
+signal hit
+var player_size = 0.25
 
 func add_point():
 	score += 10*comboMultipier
@@ -21,3 +23,7 @@ func remove_point():
 	emit_signal("combo_changed",comboMultipier)
 	print(score)
 	
+func set_size(size_change):
+	print("you got hit")
+	player_size *= size_change
+	emit_signal("hit", player_size)

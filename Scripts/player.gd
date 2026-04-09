@@ -5,6 +5,8 @@ extends CharacterBody2D
 const SPEED = 750.0
 const JUMP_VELOCITY = -600.0 
 
+func _process(delta: float) -> void:
+	scale = Vector2(GameManager.player_size, GameManager.player_size)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -30,7 +32,3 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.rotation += 0.1
 	if direction == -1.0:
 		animated_sprite_2d.rotation -= 0.1
-
-func shrink() -> void:
-	$AnimatedSprite2D.scale = Vector2(0.5, 0.5)
-	$CollisionShape2D.scale = Vector2(0.5, 0.5)
