@@ -8,6 +8,7 @@ func _ready():
 	#add_child(timer)
 	GameManager._state = GameManager.GAME_STATES.MENU
 	GameManager.tongue_health = 5
+	GameManager.player_size = .25
 	%GameOver.hide()
 	%StartMenu.show()
 	%DropTimer.timeout.connect(_on_timer_timeout)
