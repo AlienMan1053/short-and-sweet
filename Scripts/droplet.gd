@@ -6,7 +6,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if(GameManager._state == GameManager.GAME_STATES.GAME_OVER):
+		queue_free()
 	
 func _physics_process(delta):
 	position.y += randi_range(200,700)*delta

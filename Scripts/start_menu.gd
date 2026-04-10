@@ -18,6 +18,8 @@ func _on_start_game_button_pressed() -> void:
 	%ComboLabel.show()
 	%ScoreText.show()
 	%ComboText.show()
+	%HealthLabel.show()
+	%HealthText.show()
 	GameManager.game_start()
 	GameManager.reset()
 	GameManager.start_music()
