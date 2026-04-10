@@ -79,6 +79,7 @@ volume_db = -20.0
 
 [node name="gameover" type="AudioStreamPlayer" parent="." unique_id=1438698121]
 stream = ExtResource("16_e285m")
+volume_db = -20.982
 
 [node name="game_start" type="AudioStreamPlayer" parent="." unique_id=183361884]
 stream = ExtResource("17_8168a")
