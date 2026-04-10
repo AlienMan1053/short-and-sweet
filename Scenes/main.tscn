@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bi4lpanivwjcx" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bl2yxyb4b1nf7" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://diwduh5g0fvl3" path="res://Assests/Images/World/Tongue.png" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://drm1y80akmuuu" path="res://Scenes/start_menu.tscn" id="3_ynf5e"]
 [ext_resource type="FontFile" uid="uid://dgymasmm5i6tu" path="res://Assests/Fonts/toxigenesis bd.otf" id="4_kry3j"]
 [ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scripts/score_label.gd" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scripts/game_manager.gd" id="6_21xkr"]
@@ -16,6 +17,7 @@ size = Vector2(127.88889, 98)
 default_font = ExtResource("4_kry3j")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
+bg_color = Color(0.5563215, 0.59593785, 0.72479457, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -29,6 +31,9 @@ script = ExtResource("1_8gbba")
 [node name="GameManager" type="Node" parent="." unique_id=918708317]
 unique_name_in_owner = true
 script = ExtResource("6_21xkr")
+
+[node name="StartMenu" parent="." unique_id=1024174444 instance=ExtResource("3_ynf5e")]
+unique_name_in_owner = true
 
 [node name="DropTimer" type="Timer" parent="." unique_id=1930163756]
 unique_name_in_owner = true
@@ -192,6 +197,8 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=21226640]
 layout_mode = 2
-text = "Start Over"
+text = "Return to Menu"
 
+[connection signal="exitGame" from="StartMenu" to="." method="_on_start_menu_exit_game"]
+[connection signal="startGame" from="StartMenu" to="." method="_on_start_menu_start_game"]
 [connection signal="pressed" from="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer/Button" to="GameManager" method="_on_button_pressed"]
