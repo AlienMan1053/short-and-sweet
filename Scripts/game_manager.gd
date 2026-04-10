@@ -4,7 +4,7 @@ signal combo_changed(new_combo)
 var score = 0
 var comboMultipier = 1.0
 var player_size = 0.25
-
+var filth_value
 
 enum GAME_STATES {
 	PLAYING,

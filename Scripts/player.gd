@@ -5,6 +5,9 @@ extends CharacterBody2D
 const SPEED = 750.0
 const JUMP_VELOCITY = -600.0 
 
+func _ready() -> void:
+	GameManager.filth_value = 0
+	
 func _process(delta: float) -> void:
 	scale = Vector2(GameManager.player_size, GameManager.player_size)
 	if(GameManager.player_size >= 0.25):
@@ -23,7 +26,7 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.animation = "purple"
 	elif(GameManager.player_size >= 0.075):
 		animated_sprite_2d.animation = "indigo"
-	
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
