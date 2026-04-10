@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://drxvo421cbe87"]
+
+[ext_resource type="AudioStream" uid="uid://dmsh2svfiyll8" path="res://Assests/Sounds/music.mp3" id="1_fbmny"]
+
+[node name="Music" type="AudioStreamPlayer" unique_id=745198723]
+stream = ExtResource("1_fbmny")
+autoplay = true

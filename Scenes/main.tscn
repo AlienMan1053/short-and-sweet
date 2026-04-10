@@ -7,8 +7,15 @@
 [ext_resource type="FontFile" uid="uid://dgymasmm5i6tu" path="res://Assests/Fonts/toxigenesis bd.otf" id="4_kry3j"]
 [ext_resource type="Script" uid="uid://b3aif6qmrqwsi" path="res://Scripts/score_label.gd" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scripts/game_manager.gd" id="6_21xkr"]
-[ext_resource type="Texture2D" uid="uid://drsqxk6u1c80d" path="res://Assests/Images/UI Elements/Button.png" id="6_344ge"]
+[ext_resource type="Texture2D" uid="uid://r3vbhmkvpfee" path="res://Assests/Images/Effects/Filth.png" id="6_wsu2k"]
+[ext_resource type="Script" uid="uid://3owitt8cchpd" path="res://Scripts/tongue_filth_1.gd" id="7_jkdf5"]
 [ext_resource type="Script" uid="uid://dxbe56ee1nb60" path="res://Scripts/combo_label.gd" id="8_344ge"]
+[ext_resource type="Script" uid="uid://bbcbmloqaf4we" path="res://Scripts/tongue_filth_2.gd" id="8_wsu2k"]
+[ext_resource type="Script" uid="uid://llj37wm487mb" path="res://Scripts/tongue_filth_3.gd" id="9_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://dnmv1slvjwdik" path="res://Assests/Images/World/Mouth.png" id="10_hptm8"]
+[ext_resource type="Script" uid="uid://dg03wcji1t3ev" path="res://Scripts/tongue_filth_4.gd" id="10_k12tt"]
+[ext_resource type="Texture2D" uid="uid://cevh8txsw3238" path="res://Assests/Images/World/Teeth.png" id="11_d1ilt"]
+[ext_resource type="Script" uid="uid://cirg06bcjrb7x" path="res://Scripts/health_label.gd" id="14_k12tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(127.88889, 98)
@@ -34,6 +41,11 @@ script = ExtResource("6_21xkr")
 
 [node name="StartMenu" parent="." unique_id=1024174444 instance=ExtResource("3_ynf5e")]
 unique_name_in_owner = true
+visible = false
+offset_left = -38.0
+offset_right = 1195.0
+offset_bottom = 994.0
+color = Color(0.6627451, 0.13725491, 0.15686275, 1)
 
 [node name="DropTimer" type="Timer" parent="." unique_id=1930163756]
 unique_name_in_owner = true
@@ -46,6 +58,7 @@ scale = Vector2(0.25, 0.25)
 [node name="Tongue" type="StaticBody2D" parent="." unique_id=664364024]
 position = Vector2(576, 925)
 scale = Vector2(9, 1)
+collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Tongue" unique_id=2113338856]
@@ -57,10 +70,46 @@ texture = ExtResource("2_bo1nx")
 position = Vector2(0.05555725, 15)
 shape = SubResource("RectangleShape2D_8gbba")
 
+[node name="Tongue_Filth_1" type="Sprite2D" parent="Tongue" unique_id=1391906180]
+unique_name_in_owner = true
+visible = false
+position = Vector2(8, -5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_wsu2k")
+script = ExtResource("7_jkdf5")
+
+[node name="Tongue_Filth_2" type="Sprite2D" parent="Tongue" unique_id=2007619656]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-1.0000002, -8.000002)
+rotation = 0.53232545
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_wsu2k")
+script = ExtResource("8_wsu2k")
+
+[node name="Tongue_Filth_3" type="Sprite2D" parent="Tongue" unique_id=980865578]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-4.000001, -12.999999)
+rotation = -0.5235988
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_wsu2k")
+script = ExtResource("9_wsu2k")
+
+[node name="Tongue_Filth_4" type="Sprite2D" parent="Tongue" unique_id=428294335]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-4.000001, -12.999999)
+rotation = 3.1415927
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_wsu2k")
+script = ExtResource("10_k12tt")
+
 [node name="Left Wall" type="StaticBody2D" parent="." unique_id=1407524714]
 position = Vector2(-64, 519)
 rotation = 1.5707964
 scale = Vector2(9, 1)
+collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Left Wall" unique_id=2044841040]
@@ -75,6 +124,7 @@ shape = SubResource("RectangleShape2D_8gbba")
 position = Vector2(1216, 512)
 rotation = -1.5707964
 scale = Vector2(9, 1)
+collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Right Wall" unique_id=879034731]
@@ -96,36 +146,42 @@ offset_right = 111.0
 offset_bottom = 100.0
 theme = SubResource("Theme_6bp64")
 
-[node name="ScoreBox" type="Sprite2D" parent="UserInterface" unique_id=1968827589]
-position = Vector2(60.000004, 21.5)
-scale = Vector2(0.26000002, 0.2633333)
-texture = ExtResource("6_344ge")
-
 [node name="ScoreLabel" type="Label" parent="UserInterface" unique_id=247105819]
+unique_name_in_owner = true
+visible = false
+z_index = 3
 layout_mode = 0
-offset_left = -7.0
-offset_top = -12.0
-offset_right = 129.0
-offset_bottom = 13.0
-theme_override_font_sizes/font_size = 16
-text = "Score: 0"
+offset_left = 118.0
+offset_top = -10.0
+offset_right = 254.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_6bp64")
 
 [node name="ComboLabel" type="Label" parent="UserInterface" unique_id=1750304067]
+unique_name_in_owner = true
+visible = false
+z_index = 3
 layout_mode = 0
-offset_left = -7.0
-offset_top = 26.0
-offset_right = 127.0
-offset_bottom = 52.0
-text = "Combo: x1.0"
+offset_left = 1000.0
+offset_top = -10.0
+offset_right = 1134.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = " x1.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_344ge")
 
 [node name="GameOver" type="ColorRect" parent="UserInterface" unique_id=690339426]
 unique_name_in_owner = true
+visible = false
+z_index = 4
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -198,6 +254,77 @@ horizontal_alignment = 1
 [node name="Button" type="Button" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=21226640]
 layout_mode = 2
 text = "Return to Menu"
+
+[node name="ScoreText" type="Label" parent="UserInterface" unique_id=1404585482]
+unique_name_in_owner = true
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = -28.0
+offset_top = -5.0
+offset_right = 108.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboText" type="Label" parent="UserInterface" unique_id=222853506]
+unique_name_in_owner = true
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = 860.0
+offset_top = -5.0
+offset_right = 994.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Combo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthText" type="Label" parent="UserInterface" unique_id=371725292]
+unique_name_in_owner = true
+z_index = 3
+layout_mode = 0
+offset_left = 415.0
+offset_top = -5.0
+offset_right = 551.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="UserInterface" unique_id=303635467]
+unique_name_in_owner = true
+z_index = 3
+layout_mode = 0
+offset_left = 565.0
+offset_top = -10.0
+offset_right = 701.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("14_k12tt")
+
+[node name="Mouth" type="Sprite2D" parent="." unique_id=1913607383]
+z_index = -1
+position = Vector2(581, 492)
+scale = Vector2(2, 1.984)
+texture = ExtResource("10_hptm8")
+
+[node name="Teeth" type="Sprite2D" parent="." unique_id=108052521]
+z_index = 2
+position = Vector2(580.99994, 80.59599)
+scale = Vector2(1.5, 1.0752102)
+texture = ExtResource("11_d1ilt")
 
 [connection signal="exitGame" from="StartMenu" to="." method="_on_start_menu_exit_game"]
 [connection signal="startGame" from="StartMenu" to="." method="_on_start_menu_start_game"]

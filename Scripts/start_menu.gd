@@ -14,7 +14,13 @@ func _process(delta: float) -> void:
 
 func _on_start_game_button_pressed() -> void:
 	emit_signal("startGame")
-
+	%ScoreLabel.show()
+	%ComboLabel.show()
+	%ScoreText.show()
+	%ComboText.show()
+	GameManager.game_start()
+	GameManager.reset()
+	GameManager.start_music()
 
 func _on_exit_game_button_pressed() -> void:
 	emit_signal("exitGame")

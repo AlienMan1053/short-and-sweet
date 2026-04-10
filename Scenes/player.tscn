@@ -5,10 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://cif83uatho77m" path="res://Assests/Images/Player/Jawbreaker_Blue.png" id="2_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://dj7js575cjncb" path="res://Assests/Images/Player/Jawbreaker_Orange.png" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dl17tsth8qsa6" path="res://Assests/Images/Player/Jawbreaker_Yellow.png" id="4_8erm5"]
-[ext_resource type="Texture2D" uid="uid://bp3rt4cwurs05" path="res://Assests/Images/Player/Jawbreaker_Green.png" id="5_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://dig3i3veog7no" path="res://Assests/Images/Player/Jawbreaker_Green.png" id="5_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://ba23c3242d7r" path="res://Assests/Images/Player/Jawbreaker_Indigo.png" id="5_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://b7ehgdh37smlg" path="res://Assests/Images/Player/Jawbreaker_Pink.png" id="7_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://cmply2w41bwyr" path="res://Assests/Images/Player/Jawbreaker_Purple.png" id="7_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://r3vbhmkvpfee" path="res://Assests/Images/Effects/Filth.png" id="10_tx1dd"]
+[ext_resource type="Script" uid="uid://dae8vmymurbue" path="res://Scripts/filth_1.gd" id="11_ukyrk"]
+[ext_resource type="Script" uid="uid://b20wq2qh2o44t" path="res://Scripts/filth_2.gd" id="12_7dp3o"]
+[ext_resource type="Script" uid="uid://b1ahk32qyu7oi" path="res://Scripts/filth_3.gd" id="13_h4iuc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -29,7 +32,7 @@ animations = [{
 "texture": ExtResource("5_f1ek2")
 }],
 "loop": true,
-"name": &"green",
+"name": &"cyan",
 "speed": 5.0
 }, {
 "frames": [{
@@ -50,18 +53,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_3smsa")
+"texture": ExtResource("5_f1ek2")
 }],
 "loop": true,
-"name": &"orange",
+"name": &"lime",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_f1ek2")
+"texture": ExtResource("3_3smsa")
 }],
 "loop": true,
-"name": &"pink",
+"name": &"orange",
 "speed": 5.0
 }, {
 "frames": [{
@@ -85,15 +88,37 @@ animations = [{
 radius = 275.00726
 
 [node name="Player" type="CharacterBody2D" unique_id=2053804336]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1903976701]
 texture_filter = 1
 position = Vector2(1, 2)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
-animation = &"pink"
+animation = &"cyan"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972182217]
 position = Vector2(-6, -7)
 shape = SubResource("CircleShape2D_6t5aa")
+
+[node name="Filth_1" type="Sprite2D" parent="." unique_id=1736443741]
+unique_name_in_owner = true
+position = Vector2(8, -5)
+texture = ExtResource("10_tx1dd")
+script = ExtResource("11_ukyrk")
+
+[node name="Filth_2" type="Sprite2D" parent="." unique_id=1765438374]
+unique_name_in_owner = true
+position = Vector2(-1.0000002, -8.000002)
+rotation = 0.53232545
+texture = ExtResource("10_tx1dd")
+script = ExtResource("12_7dp3o")
+
+[node name="Filth_3" type="Sprite2D" parent="." unique_id=415715353]
+unique_name_in_owner = true
+position = Vector2(-4.000001, -12.999999)
+rotation = -0.5235988
+texture = ExtResource("10_tx1dd")
+script = ExtResource("13_h4iuc")

@@ -2,14 +2,12 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
-const SPEED = 750.0
-const JUMP_VELOCITY = -600.0 
 
-func _ready() -> void:
-	GameManager.filth_value = 0
-	
 func _process(delta: float) -> void:
 	scale = Vector2(GameManager.player_size, GameManager.player_size)
+	change_size()
+
+func change_size() -> void:
 	if(GameManager.player_size >= 0.25):
 		animated_sprite_2d.animation = "idle"
 	elif(GameManager.player_size >= 0.225):
@@ -17,16 +15,15 @@ func _process(delta: float) -> void:
 	elif(GameManager.player_size >= 0.2):
 		animated_sprite_2d.animation = "yellow"
 	elif(GameManager.player_size >= 0.175):
-		animated_sprite_2d.animation = "green"
+		animated_sprite_2d.animation = "lime"
 	elif(GameManager.player_size >= 0.15):
 		animated_sprite_2d.animation = "blue"
 	elif(GameManager.player_size >= 0.125):
-		animated_sprite_2d.animation = "pink"
+		animated_sprite_2d.animation = "cyan"
 	elif(GameManager.player_size >= 0.1):
 		animated_sprite_2d.animation = "purple"
 	elif(GameManager.player_size >= 0.075):
 		animated_sprite_2d.animation = "indigo"
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -35,14 +32,19 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		GameManager.jump()
+		velocity.y = GameManager.player_jump_velocity
+		var shrink_chance = randf_range(1,100)
+		if(GameManager.player_size >= .1 && shrink_chance > 80):
+			GameManager.set_size(-.025)
+			GameManager.crunch()
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("Left", "Right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * GameManager.player_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, GameManager.player_speed)
 
 	move_and_slide()
 	
@@ -50,5 +52,11 @@ func _physics_process(delta: float) -> void:
 	
 	if direction == 1.0:
 		animated_sprite_2d.rotation += 0.1
+		%Filth_1.rotation += 0.1
+		%Filth_2.rotation += 0.1
+		%Filth_3.rotation += 0.1
 	if direction == -1.0:
 		animated_sprite_2d.rotation -= 0.1
+		%Filth_1.rotation -= 0.1
+		%Filth_2.rotation -= 0.1
+		%Filth_3.rotation -= 0.1

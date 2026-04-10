@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ehgdh37smlg"
-path="res://.godot/imported/Jawbreaker_Pink.png-ed2bc15d381e0135e95cea2787a33944.ctex"
+uid="uid://bgjsbuxtr7svp"
+path="res://.godot/imported/Jawbreaker_Lime.png-dcf4b353fd9afe5d07df449520e1c25f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/Images/Player/Jawbreaker_Pink.png"
-dest_files=["res://.godot/imported/Jawbreaker_Pink.png-ed2bc15d381e0135e95cea2787a33944.ctex"]
+source_file="res://Assests/Images/Player/Jawbreaker_Lime.png"
+dest_files=["res://.godot/imported/Jawbreaker_Lime.png-dcf4b353fd9afe5d07df449520e1c25f.ctex"]
 
 [params]
 
