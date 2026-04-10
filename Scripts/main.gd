@@ -7,6 +7,7 @@ func _ready():
 	#timer.wait_time = wait_time
 	#add_child(timer)
 	GameManager._state = GameManager.GAME_STATES.MENU
+	GameManager.tongue_health = 5
 	%GameOver.hide()
 	%StartMenu.show()
 	%DropTimer.timeout.connect(_on_timer_timeout)
@@ -36,11 +37,10 @@ func _process(delta: float) -> void:
 	%DropTimer.wait_time = wait_time
 	match GameManager._state:
 		GameManager.GAME_STATES.GAME_OVER:
+			%GameOver
 			%GameOver.show()
 	pass
 
-func on_game_over():
-	%GameOver.show()
 
 
 func _on_start_menu_start_game() -> void:

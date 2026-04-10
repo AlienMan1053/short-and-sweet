@@ -5,7 +5,8 @@ var score = 0
 var comboMultipier = 1.0
 var player_size = 0.25
 var filth_value
-var tongue_health = 5
+var tongue_health
+var final_score
 
 enum GAME_STATES {
 	MENU,
@@ -28,6 +29,7 @@ func remove_point():
 	score -= 10*comboMultipier	
 	tongue_health -= 1
 	if tongue_health == 0:
+		final_score = score
 		_state = GAME_STATES.GAME_OVER
 	
 	emit_signal("score_changed",score)
@@ -39,5 +41,4 @@ func set_size(size_change):
 	print("New Size: ", player_size)
 
 func _on_button_pressed() -> void:
-	%GameOver.hide()
 	get_tree().reload_current_scene()

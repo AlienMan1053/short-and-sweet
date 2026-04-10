@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bvk7k6fk3r11a" path="res://Scripts/game_manager.gd" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://drsqxk6u1c80d" path="res://Assests/Images/UI Elements/Button.png" id="6_344ge"]
 [ext_resource type="Script" uid="uid://dxbe56ee1nb60" path="res://Scripts/combo_label.gd" id="8_344ge"]
+[ext_resource type="Script" uid="uid://be2681qfyvt13" path="res://Scenes/final_score_label.gd" id="10_hptm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(127.88889, 98)
@@ -34,6 +35,7 @@ script = ExtResource("6_21xkr")
 
 [node name="StartMenu" parent="." unique_id=1024174444 instance=ExtResource("3_ynf5e")]
 unique_name_in_owner = true
+visible = false
 
 [node name="DropTimer" type="Timer" parent="." unique_id=1930163756]
 unique_name_in_owner = true
@@ -183,11 +185,13 @@ theme_override_font_sizes/font_size = 32
 text = "GAME OVER"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=2139124317]
+[node name="FinalScoreLabel" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=2139124317]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+text = "Final Score: x"
 horizontal_alignment = 1
+script = ExtResource("10_hptm8")
 
 [node name="Label5" type="Label" parent="UserInterface/GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1944594716]
 layout_mode = 2
