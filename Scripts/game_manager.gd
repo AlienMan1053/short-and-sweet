@@ -15,14 +15,14 @@ var filth_value = 0
 #Player speed values
 var player_speed
 const SPEED = 750.0
-const SPEED_DEBUFF = 50.0
-const SPEED_BUFF = 40.0
+const SPEED_DEBUFF = 110.0
+const SPEED_BUFF = 80.0
 
 #Player jump values
 var player_jump_velocity
 const JUMP_VELOCITY = -600.0
-const JUMP_DEBUFF = 55.0
-const JUMP_BUFF = 45.0
+const JUMP_DEBUFF = SPEED_DEBUFF + 5.0
+const JUMP_BUFF = SPEED_BUFF + 5.0
 
 #Sound and world variables
 var tongue_health = 5
@@ -31,7 +31,8 @@ var audio = preload("res://Scenes/sounds.tscn").instantiate()
 enum GAME_STATES {
 	MENU,
 	PLAYING,
-	GAME_OVER
+	GAME_OVER,
+	PAUSED
 }
 var _state: GAME_STATES = GAME_STATES.MENU
 
@@ -77,7 +78,18 @@ func remove_point():
 	
 func set_size(size_change):
 	player_size += size_change
+	print("FILTH: ", filth_value)
+	print("SIZE: ", player_size)
+	print("JUMP: ", player_jump_velocity)
+	print("SPEED: ", player_speed)
+	print("")
 	#print("New Size: ", player_size)
+
+func pause():
+	_state = GAME_STATES.PAUSED
+
+func unpause():
+	_state = GAME_STATES.PLAYING
 
 func filthy(added_filth):
 	filth_value += added_filth
@@ -86,11 +98,6 @@ func filthy(added_filth):
 		if(filth_value == num):
 			player_speed = SPEED + (num * SPEED_BUFF) - (num * SPEED_DEBUFF)
 			player_jump_velocity = JUMP_VELOCITY - (num * SPEED_BUFF) + (num * JUMP_DEBUFF)
-	#print("FILTH: ", filth_value)
-	#print("SIZE: ", player_size)
-	#print("JUMP: ", player_jump_velocity)
-	#print("SPEED: ", player_speed)
-	#print("")
 
 func squelch():
 	audio.get_node("squelch").play()

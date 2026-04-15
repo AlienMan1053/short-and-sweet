@@ -10,7 +10,8 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 func _physics_process(delta):
-	position.y += randi_range(200,700)*delta
+	if GameManager._state == GameManager.GAME_STATES.PLAYING:
+		position.y += randi_range(200,700)*delta
 
 func _on_body_entered(body) -> void:
 	queue_free()
