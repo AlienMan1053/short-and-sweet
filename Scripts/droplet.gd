@@ -12,6 +12,5 @@ func _process(delta: float) -> void:
 func _physics_process(delta):
 	position.y += randi_range(200,700)*delta
 
-
 func _on_body_entered(body) -> void:
 	queue_free()

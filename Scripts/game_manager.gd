@@ -1,18 +1,31 @@
 extends Node
+#Displayed game information
 signal score_changed(new_score)
 signal combo_changed(new_combo)
 signal health_changed(new_health)
+
+#Score trackers
 var score = 0
 var comboMultipier = 1.0
+
+#Player information
 var player_size = 0.25
 var filth_value = 0
-var tongue_health = 5
-const SPEED = 750.0
-const JUMP_VELOCITY = -600.0
-const SPEED_DEBUFF = 40.0
-const JUMP_DEBUFF = 45.0
+
+#Player speed values
 var player_speed
+const SPEED = 750.0
+const SPEED_DEBUFF = 50.0
+const SPEED_BUFF = 40.0
+
+#Player jump values
 var player_jump_velocity
+const JUMP_VELOCITY = -600.0
+const JUMP_DEBUFF = 55.0
+const JUMP_BUFF = 45.0
+
+#Sound and world variables
+var tongue_health = 5
 var audio = preload("res://Scenes/sounds.tscn").instantiate()
 
 enum GAME_STATES {
@@ -69,19 +82,16 @@ func set_size(size_change):
 func filthy(added_filth):
 	filth_value += added_filth
 	#print("Filth level: ", GameManager.filth_value)
-	if(filth_value == 0):
-		player_speed = SPEED
-		player_jump_velocity = JUMP_VELOCITY
-	if(filth_value == 1):
-		player_speed = SPEED - SPEED_DEBUFF
-		player_jump_velocity = JUMP_VELOCITY + JUMP_DEBUFF
-	if(filth_value == 2):
-		player_speed = SPEED - 2*SPEED_DEBUFF
-		player_jump_velocity = JUMP_VELOCITY + (2*JUMP_DEBUFF)
-	if(filth_value == 3):
-		player_speed = SPEED - 3*SPEED_DEBUFF
-		player_jump_velocity = JUMP_VELOCITY + (3*JUMP_DEBUFF)
-	
+	for num in range(0,4):
+		if(filth_value == num):
+			player_speed = SPEED + (num * SPEED_BUFF) - (num * SPEED_DEBUFF)
+			player_jump_velocity = JUMP_VELOCITY - (num * SPEED_BUFF) + (num * JUMP_DEBUFF)
+	print("FILTH: ", filth_value)
+	print("SIZE: ", player_size)
+	print("JUMP: ", player_jump_velocity)
+	print("SPEED: ", player_speed)
+	print("")
+
 func squelch():
 	audio.get_node("squelch").play()
 

@@ -1,5 +1,4 @@
 extends "res://Scripts/droplet.gd"
-@onready var gross: AudioStreamPlayer2D = $gross_1
 
 """
 Extended the droplet class to add particular logic to the enemy scene.

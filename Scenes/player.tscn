@@ -96,7 +96,7 @@ script = ExtResource("1_cvnsp")
 texture_filter = 1
 position = Vector2(1, 2)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
-animation = &"cyan"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972182217]
