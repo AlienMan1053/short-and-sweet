@@ -19,10 +19,12 @@ func _on_timer_timeout():
 			randomize()
 			var choice = randf_range(1,100)
 			var droplet
-			if(choice < 40):
-				droplet = preload("res://Scenes/sugar.tscn").instantiate()
-			elif(choice < 75):
+			var sugar_chance = 20.0
+			var water_chance = 8.0
+			if(choice < (6-GameManager.comboMultipier) * water_chance):
 				droplet = preload("res://Scenes/water.tscn").instantiate()
+			elif(choice < (6-GameManager.comboMultipier) * sugar_chance):
+				droplet = preload("res://Scenes/sugar.tscn").instantiate()
 			else:
 				droplet = preload("res://Scenes/enemy.tscn").instantiate()
 			droplet.position.y = -25

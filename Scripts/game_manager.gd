@@ -40,15 +40,15 @@ func _ready() -> void:
 	player_speed = SPEED
 	player_jump_velocity = JUMP_VELOCITY
 
-func add_point():
-	var yum_sound = randf_range(1,5)
-	if(yum_sound <= 2):
-		audio.get_node("mmm_1").play()
-	elif(yum_sound <= 3):
-		audio.get_node("mmm_2").play()
-	score += 10*comboMultipier
-	if comboMultipier < 5:
-		comboMultipier += .1
+func add_point(droplet):
+	if(droplet == "water"):
+		score += 3*comboMultipier
+	elif(droplet == "sugar"):
+		score += 10*comboMultipier
+		if comboMultipier < 5:
+			comboMultipier += .1
+	else:
+		score += 12*comboMultipier
 	
 	emit_signal("score_changed",score)
 	emit_signal("combo_changed",comboMultipier)
@@ -86,18 +86,23 @@ func filthy(added_filth):
 		if(filth_value == num):
 			player_speed = SPEED + (num * SPEED_BUFF) - (num * SPEED_DEBUFF)
 			player_jump_velocity = JUMP_VELOCITY - (num * SPEED_BUFF) + (num * JUMP_DEBUFF)
-	print("FILTH: ", filth_value)
-	print("SIZE: ", player_size)
-	print("JUMP: ", player_jump_velocity)
-	print("SPEED: ", player_speed)
-	print("")
+	#print("FILTH: ", filth_value)
+	#print("SIZE: ", player_size)
+	#print("JUMP: ", player_jump_velocity)
+	#print("SPEED: ", player_speed)
+	#print("")
 
 func squelch():
 	audio.get_node("squelch").play()
 
 func jump():
 	audio.get_node("jump").play()
-
+func yum():
+	var yum_sound = randf_range(1,5)
+	if(yum_sound <= 2):
+		audio.get_node("mmm_1").play()
+	elif(yum_sound <= 3):
+		audio.get_node("mmm_2").play()
 func lick():
 	var lick_sound = randf_range(1,6)
 	if lick_sound <= 1:

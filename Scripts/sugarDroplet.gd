@@ -5,7 +5,8 @@ Extended the droplet class to add particular logic to the enemy scene.
 """
 func _on_body_entered(body) -> void:
 	if(body.name == "Tongue"):
-		GameManager.add_point()
+		GameManager.yum()
+		GameManager.add_point("sugar")
 		queue_free()
 	if(body.name == "Player"):
 		if(GameManager.player_size<.25 && GameManager.filth_value == 0):
