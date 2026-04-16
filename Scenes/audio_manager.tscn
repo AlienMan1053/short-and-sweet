@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://3o63oxwlmacv"]
+
+[ext_resource type="Script" uid="uid://8btr7spfxwc" path="res://Scripts/audio_manager.gd" id="1_tesok"]
+[ext_resource type="AudioStream" uid="uid://d0ny6i0kf544q" path="res://Assests/Sounds/gross_1.mp3" id="2_s7ae5"]
+[ext_resource type="AudioStream" uid="uid://3yp84yi4qdal" path="res://Assests/Sounds/gross_2.mp3" id="3_w4e61"]
+[ext_resource type="AudioStream" uid="uid://bew3gvlgva4jh" path="res://Assests/Sounds/gross_3.mp3" id="4_uebr4"]
+[ext_resource type="AudioStream" uid="uid://ccgx8jlkpq0ey" path="res://Assests/Sounds/mmm_1.mp3" id="5_ype7x"]
+[ext_resource type="AudioStream" uid="uid://cb72ulhcwt7rv" path="res://Assests/Sounds/mmm_2.mp3" id="6_7oln7"]
+[ext_resource type="AudioStream" uid="uid://ch5vlypasx0e5" path="res://Assests/Sounds/squelch.mp3" id="7_3rm37"]
+[ext_resource type="AudioStream" uid="uid://b62chpy8fq7ai" path="res://Assests/Sounds/crunch_1.mp3" id="8_ufe2k"]
+[ext_resource type="AudioStream" uid="uid://bgg3e8ygacaxs" path="res://Assests/Sounds/jump.mp3" id="9_uj3df"]
+[ext_resource type="AudioStream" uid="uid://di7j43vfs8btw" path="res://Assests/Sounds/lick_1.mp3" id="10_jdih1"]
+[ext_resource type="AudioStream" uid="uid://cm46ll8fdv63w" path="res://Assests/Sounds/lick_2.mp3" id="11_tljh5"]
+[ext_resource type="AudioStream" uid="uid://3nnojauuu4hv" path="res://Assests/Sounds/lick_3.mp3" id="12_2gmef"]
+[ext_resource type="AudioStream" uid="uid://d0hl38fb70ocr" path="res://Assests/Sounds/block_1.mp3" id="13_x3jwi"]
+[ext_resource type="AudioStream" uid="uid://df4weskbfgoqu" path="res://Assests/Sounds/block_2.mp3" id="14_58qpp"]
+[ext_resource type="AudioStream" uid="uid://dmsh2svfiyll8" path="res://Assests/Sounds/music.mp3" id="15_h2e5n"]
+[ext_resource type="AudioStream" uid="uid://3v1mgdfm5p1x" path="res://Assests/Sounds/sugar.mp3" id="16_u681y"]
+[ext_resource type="AudioStream" uid="uid://bsab0ovqu31ko" path="res://Assests/Sounds/gameover.mp3" id="17_jcjfy"]
+[ext_resource type="AudioStream" uid="uid://dst5n77jk87yk" path="res://Assests/Sounds/game_start.mp3" id="18_rd4uy"]
+
+[node name="AudioManager" type="Node" unique_id=1680011381]
+unique_name_in_owner = true
+script = ExtResource("1_tesok")
+
+[node name="gross_1" type="AudioStreamPlayer" parent="." unique_id=1736814968]
+unique_name_in_owner = true
+stream = ExtResource("2_s7ae5")
+volume_db = -10.0
+
+[node name="gross_2" type="AudioStreamPlayer" parent="." unique_id=2050119006]
+unique_name_in_owner = true
+stream = ExtResource("3_w4e61")
+volume_db = -10.0
+
+[node name="gross_3" type="AudioStreamPlayer" parent="." unique_id=1119335349]
+unique_name_in_owner = true
+stream = ExtResource("4_uebr4")
+volume_db = -10.0
+
+[node name="mmm_1" type="AudioStreamPlayer" parent="." unique_id=991860750]
+unique_name_in_owner = true
+stream = ExtResource("5_ype7x")
+volume_db = -10.0
+
+[node name="mmm_2" type="AudioStreamPlayer" parent="." unique_id=174271393]
+unique_name_in_owner = true
+stream = ExtResource("6_7oln7")
+volume_db = -20.0
+
+[node name="squelch" type="AudioStreamPlayer" parent="." unique_id=772194270]
+unique_name_in_owner = true
+stream = ExtResource("7_3rm37")
+
+[node name="crunch_1" type="AudioStreamPlayer" parent="." unique_id=1109152482]
+unique_name_in_owner = true
+stream = ExtResource("8_ufe2k")
+
+[node name="jump" type="AudioStreamPlayer" parent="." unique_id=1841841288]
+unique_name_in_owner = true
+stream = ExtResource("9_uj3df")
+volume_db = -30.0
+
+[node name="lick_1" type="AudioStreamPlayer" parent="." unique_id=1618114131]
+unique_name_in_owner = true
+stream = ExtResource("10_jdih1")
+volume_db = -15.0
+
+[node name="lick_2" type="AudioStreamPlayer" parent="." unique_id=1184072114]
+unique_name_in_owner = true
+stream = ExtResource("11_tljh5")
+volume_db = -15.0
+
+[node name="lick_3" type="AudioStreamPlayer" parent="." unique_id=1132803409]
+unique_name_in_owner = true
+stream = ExtResource("12_2gmef")
+volume_db = -15.0
+
+[node name="block_1" type="AudioStreamPlayer" parent="." unique_id=50503501]
+unique_name_in_owner = true
+stream = ExtResource("13_x3jwi")
+
+[node name="block_2" type="AudioStreamPlayer" parent="." unique_id=2097490432]
+unique_name_in_owner = true
+stream = ExtResource("14_58qpp")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=620613496]
+unique_name_in_owner = true
+stream = ExtResource("15_h2e5n")
+volume_db = -20.0
+parameters/looping = false
+
+[node name="sugar" type="AudioStreamPlayer" parent="." unique_id=351328554]
+unique_name_in_owner = true
+stream = ExtResource("16_u681y")
+volume_db = -20.0
+
+[node name="gameover" type="AudioStreamPlayer" parent="." unique_id=564295486]
+unique_name_in_owner = true
+stream = ExtResource("17_jcjfy")
+volume_db = -20.982
+
+[node name="game_start" type="AudioStreamPlayer" parent="." unique_id=2022000670]
+unique_name_in_owner = true
+stream = ExtResource("18_rd4uy")

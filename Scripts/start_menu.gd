@@ -7,11 +7,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_start_game_button_pressed() -> void:
 	emit_signal("startGame")
 	%ScoreLabel.show()
@@ -20,9 +15,9 @@ func _on_start_game_button_pressed() -> void:
 	%ComboText.show()
 	%HealthLabel.show()
 	%HealthText.show()
-	GameManager.game_start()
+	AudioManager.game_start_sound()
 	GameManager.reset()
-	GameManager.start_music()
+	AudioManager.start_music()
 
 func _on_exit_game_button_pressed() -> void:
 	emit_signal("exitGame")

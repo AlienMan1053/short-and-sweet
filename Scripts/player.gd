@@ -37,12 +37,12 @@ func _physics_process(delta: float) -> void:
 
 		# Handle jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
-			GameManager.jump()
+			AudioManager.jump_sound()
 			velocity.y = GameManager.player_jump_velocity
 			var shrink_chance = randf_range(1,100)
 			if(GameManager.player_size >= .1 && shrink_chance > 80):
 				GameManager.set_size(-.025)
-				GameManager.crunch()
+				AudioManager.crunch_sound()
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction := Input.get_axis("Left", "Right")

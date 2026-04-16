@@ -11,22 +11,23 @@ var comboMultipier = 1.0
 #Player information
 var player_size = 0.25
 var filth_value = 0
+const MAX_FILTH = 3
 
-#Player speed values
+#Player DEFAULT_SPEED values
 var player_speed
-const SPEED = 750.0
-const SPEED_DEBUFF = 110.0
-const SPEED_BUFF = 80.0
+const DEFAULT_SPEED = 750.0
+const SPEED_DEBUFF = 60.0
+const SPEED_BUFF = 40.0
+const MAX_SPEED = DEFAULT_SPEED + (7 * SPEED_BUFF)
 
 #Player jump values
 var player_jump_velocity
-const JUMP_VELOCITY = -600.0
+const DEFAULT_JUMP = -600.0
 const JUMP_DEBUFF = SPEED_DEBUFF + 5.0
 const JUMP_BUFF = SPEED_BUFF + 5.0
 
 #Sound and world variables
 var tongue_health = 5
-var audio = preload("res://Scenes/sounds.tscn").instantiate()
 
 enum GAME_STATES {
 	MENU,
@@ -37,53 +38,59 @@ enum GAME_STATES {
 var _state: GAME_STATES = GAME_STATES.MENU
 
 func _ready() -> void:
-	add_child(audio)
-	player_speed = SPEED
-	player_jump_velocity = JUMP_VELOCITY
+	player_speed = DEFAULT_SPEED
+	player_jump_velocity = DEFAULT_JUMP
 
 func add_point(droplet):
 	if(droplet == "water"):
 		score += 3*comboMultipier
 	elif(droplet == "sugar"):
-		score += 10*comboMultipier
-		if comboMultipier < 5:
+		score += 9*comboMultipier
+		if comboMultipier + .1 < 5:
 			comboMultipier += .1
-	else:
+		elif comboMultipier + .1 > 5:
+			comboMultipier = 5
+	elif(droplet == "enemy"):
 		score += 12*comboMultipier
+	elif(droplet == "soda"):
+		score += 15*comboMultipier
+		if comboMultipier + 1 < 5:
+			comboMultipier += 1
+		elif comboMultipier + 1 > 5:
+			comboMultipier = 5
 	
 	emit_signal("score_changed",score)
 	emit_signal("combo_changed",comboMultipier)
 	#print(score)
 
 func remove_point():
-	var gross_sound = randf_range(1,3)
-	#print("GROSS: ", gross_sound)
-	if(gross_sound <= 1):
-		audio.get_node("gross_1").play()
-	elif(gross_sound <= 2):
-		audio.get_node("gross_2").play()
-	elif(gross_sound <= 3):
-		audio.get_node("gross_3").play()
+	AudioManager.gross_sound()
 	comboMultipier = 1.0
 	score -= 10*comboMultipier
 	tongue_health -= 1
 	if tongue_health == 0:
-		gameover()
+		AudioManager.gameover_sound()
 		_state = GAME_STATES.GAME_OVER
 	
 	emit_signal("health_changed", tongue_health)
 	emit_signal("score_changed",score)
 	emit_signal("combo_changed",comboMultipier)
 	#print(score)
-	
+func buff():
+	if(player_speed + SPEED_BUFF < MAX_SPEED):
+		player_speed += SPEED_BUFF
+		player_jump_velocity -= SPEED_BUFF
+func nerf():
+	player_speed -= SPEED_BUFF
+	player_jump_velocity += SPEED_BUFF
+
 func set_size(size_change):
+	var old_size = player_size
 	player_size += size_change
-	print("FILTH: ", filth_value)
-	print("SIZE: ", player_size)
-	print("JUMP: ", player_jump_velocity)
-	print("SPEED: ", player_speed)
-	print("")
-	#print("New Size: ", player_size)
+	if(player_size == old_size + 0.025):
+		nerf()
+	elif(player_size == old_size - 0.025):
+		buff()
 
 func pause():
 	_state = GAME_STATES.PAUSED
@@ -92,55 +99,13 @@ func unpause():
 	_state = GAME_STATES.PLAYING
 
 func filthy(added_filth):
+	var old_filth = filth_value
 	filth_value += added_filth
 	#print("Filth level: ", GameManager.filth_value)
-	for num in range(0,4):
-		if(filth_value == num):
-			player_speed = SPEED + (num * SPEED_BUFF) - (num * SPEED_DEBUFF)
-			player_jump_velocity = JUMP_VELOCITY - (num * SPEED_BUFF) + (num * JUMP_DEBUFF)
-
-func squelch():
-	audio.get_node("squelch").play()
-
-func jump():
-	audio.get_node("jump").play()
-func yum():
-	var yum_sound = randf_range(1,5)
-	if(yum_sound <= 2):
-		audio.get_node("mmm_1").play()
-	elif(yum_sound <= 3):
-		audio.get_node("mmm_2").play()
-func lick():
-	var lick_sound = randf_range(1,6)
-	if lick_sound <= 1:
-		audio.get_node("lick_1").play()
-	if lick_sound <= 2:
-		audio.get_node("lick_2").play()
-	if lick_sound <= 3:
-		audio.get_node("lick_3").play()
-
-func crunch():
-	audio.get_node("crunch_1").play()
-
-func block():
-	var block_sound = randf_range(1,4)
-	if block_sound <= 1:
-		audio.get_node("block_1").play()
-	if block_sound <= 2:
-		audio.get_node("block_2").play()
-
-func heal():
-	audio.get_node("sugar").play()
-
-func start_music():
-	audio.get_node("music").play()
-
-func game_start():
-	audio.get_node("game_start").play()
-
-func gameover():
-	audio.get_node("music").stop()
-	audio.get_node("gameover").play()
+	if(filth_value == old_filth + 1):
+		nerf()
+	elif(filth_value == old_filth - 1):
+		buff()
 
 func reset():
 	score = 0

@@ -21,7 +21,9 @@ func _on_timer_timeout():
 			var droplet
 			var sugar_chance = 20.0
 			var water_chance = 8.0
-			if(choice < (6-GameManager.comboMultipier) * water_chance):
+			if(choice < 10*(GameManager.comboMultipier - 1)):
+				droplet = preload("res://Scenes/soda.tscn").instantiate()
+			elif(choice < (6-GameManager.comboMultipier) * water_chance):
 				droplet = preload("res://Scenes/water.tscn").instantiate()
 			elif(choice < (6-GameManager.comboMultipier) * sugar_chance):
 				droplet = preload("res://Scenes/sugar.tscn").instantiate()

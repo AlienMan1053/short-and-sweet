@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cqvd6503a83rw"]
+
+[ext_resource type="Script" uid="uid://cd1oubl4a4jbe" path="res://Scripts/soda.gd" id="1_17dge"]
+[ext_resource type="Texture2D" uid="uid://bbgpy8nnx7oqa" path="res://Assests/Images/Droplets/Soda.png" id="2_q3f8r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
+radius = 164.71526
+
+[node name="Soda" type="Area2D" unique_id=1111726100]
+z_index = 1
+scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_17dge")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=739371602]
+position = Vector2(5.3333344, -17.333328)
+texture = ExtResource("2_q3f8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51193795]
+position = Vector2(6, -4)
+shape = SubResource("CircleShape2D_1f0kj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
